@@ -2,7 +2,6 @@
 
 A browser based API testing tool
 
-
 ## Collaborators
 
 Stephen Martinez

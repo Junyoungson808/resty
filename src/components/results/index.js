@@ -1,4 +1,5 @@
 import React from 'react';
+// import './results';
 
 const Results = (props) => {
 
