@@ -1,0 +1,12 @@
+$backgroundColor: black;
+
+.resultsBox {
+  background: darken($backgroundColor, 75);
+  border-bottom: 1px solid #eee;
+  color: #eee;
+  padding: auto;
+  margin: 1%;
+  text-align: center;
+  width: 300px;
+  
+}
