@@ -36,8 +36,10 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
+      <div className='url-box'>
       <div>Request Method: {requestParams.method}</div>
       <div>URL: {requestParams.url}</div>
+      </div>
       <Form handleApiCall={callApi} />
       <Results data={data} />
       <Footer />

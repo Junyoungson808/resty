@@ -5,12 +5,12 @@ import Results from './index';
 describe('Testing the result component', () => {
   it('should render the Result', () => {
     let data = { 
-      banana: 'banana',
-      potato: 'panana',
+      pokemon: 'batman',
+      power: 'ranger',
     };
 
     render(<Results data={data} />);
     let preTest = screen.getByTestId('result-pre-test');
-    expect(preTest).toHaveTextContent('banana');
+    expect(preTest).toHaveTextContent('batman');
   });
 });

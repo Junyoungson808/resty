@@ -1,13 +1,13 @@
 $backgroundColor: #efefef;
 $radius: 40%;
 
-form {
-  display: inline-block;
-  margin: auto;
-  padding-left: 2%;
-  width: 300px;
-  height: 200px;
-  border: 3px black solid;
+// form {
+//   display: inline-block;
+//   margin: auto;
+//   padding-left: 2%;
+//   width: 300px;
+//   height: 100px;
+//   border: 3px black solid;
 
   label {
     display: flex;
@@ -27,6 +27,14 @@ form {
       }
     }
   }
+// }
+
+.form-box {
+    // display: inline-block;
+  margin: auto;
+  padding-left: 2%;
+  background-color: antiquewhite;
+  // width: 300px;
+  // height: 100px;
+  border: 3px black solid;
 }
-
-

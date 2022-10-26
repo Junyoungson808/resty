@@ -16,7 +16,8 @@ const Form = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+    <div className="form-box">
+      <form  onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
           <input onChange={(e) => setURL(e.target.value)} name='url' type='text' />
@@ -29,6 +30,7 @@ const Form = (props) => {
           <span  id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
         </label>
       </form>
+    </div>
     </>
   );
 };
