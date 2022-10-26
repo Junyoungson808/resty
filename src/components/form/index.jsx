@@ -4,35 +4,28 @@ import './form.scss';
 
 const Form = (props) => {
 
-  const [method, setMethod] = useState('GET');
-  // const [method, setMethod] = useState('GET');
+  const [method, setMethod] = useState('');
+  const [url, setURL] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = {
-      method: method || 'GET',
-      url: 'https://pokeapi.co/api/v2/pokemon',
-    };
-    props.handleApiCall(formData);
-  };
 
-  const handleMethod = (e) => {
-    setMethod(e.target.value);
-  }
+    props.handleApiCall({method, url});
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input name='url' type='text' />
+          <input onChange={(e) => setURL(e.target.value)} name='url' type='text' />
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span data-testid="get-test" className="allspans" onClick={handleMethod} id="get">GET</span>
-          <span className="allspans" id="post">POST</span>
-          <span className="allspans" id="put">PUT</span>
-          <span className="allspans" id="delete">DELETE</span>
+          <span data-testid="get-test" onClick={(e) => setMethod('GET')} id="get">GET</span>
+          <span  id="post" onClick={() => setMethod('POST')}>POST</span>
+          <span  id="put" onClick={() => setMethod('PUT')}>PUT</span>
+          <span  id="delete" onClick={() => setMethod('DELETE')}>DELETE</span>
         </label>
       </form>
     </>
