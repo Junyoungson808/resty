@@ -29,7 +29,7 @@ const Form = (props) => {
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <span className="allspans" onClick={handleMethod} id="get">GET</span>
+          <span data-testid="get-test" className="allspans" onClick={handleMethod} id="get">GET</span>
           <span className="allspans" id="post">POST</span>
           <span className="allspans" id="put">PUT</span>
           <span className="allspans" id="delete">DELETE</span>
