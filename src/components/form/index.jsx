@@ -29,10 +29,10 @@ const Form = (props) => {
           <button type="submit">GO!</button>
         </label>
         <label className="methods">
-          <button className="allButtons" onClick={handleMethod} id="get">GET</button>
-          <button className="allButtons" onClick={handleMethod} id="post">POST</button>
-          <button className="allButtons" onClick={handleMethod} id="put">PUT</button>
-          <button className="allButtons" onClick={handleMethod} id="delete">DELETE</button>
+          <span className="allspans" onClick={handleMethod} id="get">GET</span>
+          <span className="allspans" id="post">POST</span>
+          <span className="allspans" id="put">PUT</span>
+          <span className="allspans" id="delete">DELETE</span>
         </label>
       </form>
     </>
