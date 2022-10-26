@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -16,22 +16,22 @@ const App = () => {
   const [data, setData] = useState(null);
   const [requestParams, setRequestParams] = useState({});
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     data: null,
-  //     requestParams: {},
-  //   };
-  // }
-
   const callApi = async (requestParams) => {
-    let newData = await axios.get('https://pokeapi.co/api/v2/pokemon')
-    // let newData = await axios.put(URL, NEW_OBJ);
-    // let newData = await axios.put({method: 'put', url: URL, data: NEW_OBJ});
-
-    setData(newData.data.results);
     setRequestParams(requestParams);
   }
+
+  useEffect(() => {
+    const getData = async () => {
+      if (requestParams.url) {
+        const response = await axios({
+          method: requestParams.method,
+          url: requestParams.url,
+        })
+        setData(response.data);
+      }
+    }
+    getData();
+  }, [requestParams]);
 
   return (
     <React.Fragment>

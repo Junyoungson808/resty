@@ -7,6 +7,7 @@ const Form = (props) => {
   const [method, setMethod] = useState('');
   const [url, setURL] = useState('');
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,9 +24,9 @@ const Form = (props) => {
         </label>
         <label className="methods">
           <span data-testid="get-test" onClick={(e) => setMethod('GET')} id="get">GET</span>
-          <span  id="post" onClick={() => setMethod('POST')}>POST</span>
-          <span  id="put" onClick={() => setMethod('PUT')}>PUT</span>
-          <span  id="delete" onClick={() => setMethod('DELETE')}>DELETE</span>
+          <span  id="post" onClick={(e) => setMethod('POST')}>POST</span>
+          <span  id="put" onClick={(e) => setMethod('PUT')}>PUT</span>
+          <span  id="delete" onClick={(e) => setMethod('DELETE')}>DELETE</span>
         </label>
       </form>
     </>
