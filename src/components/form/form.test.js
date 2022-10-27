@@ -21,4 +21,16 @@ describe('Testing the Form Component', () => {   // Testing if the data is loade
     fireEvent.click(button)                        // Fire the Event to see if the button worked
     expect(handleBadApiCall).toHaveBeenCalled();      //handles the API Call
   });
+  it('calls the handleApi function with expected parameters', () => {
+    let expectedParams = {
+      method: 'get',
+      url: '',
+      data: 'some test json',
+    };
+
+    let handleApiCall = jest.fn();
+    render(<Form handleApiCall={handleApiCall} />);
+    let getSpan = screen.getByText('GET');
+    
+  });
 });

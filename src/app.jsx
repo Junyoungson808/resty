@@ -33,6 +33,13 @@ const App = () => {
     getData();
   }, [requestParams]);
 
+
+  // useEffect(() => {
+  //   console.log(requestParams);
+  //   axios(requestParams)
+  //     .then(response => setData(response.data.results));
+  // }, [requestParams]);
+
   return (
     <React.Fragment>
       <Header />
