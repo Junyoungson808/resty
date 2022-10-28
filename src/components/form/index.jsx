@@ -20,10 +20,10 @@ const Form = (props) => {
       <form  onSubmit={handleSubmit}>
         <label >
           <span>URL: </span>
-          <input onChange={(e) => setURL(e.target.value)} name='url' type='text' />
+          <input data-testid="form-url" onChange={(e) => setURL(e.target.value)} name='url' type='text' />
           <button type="submit">GO!</button>
         </label>
-        <textarea className='json-text-area' onChange={(e) => setJson(e.target.value)} type='text' placeholder='input JSON' />
+        <textarea data-testid="form-text-area" className='json-text-area' onChange={(e) => setJson(e.target.value)} type='text' placeholder='input JSON' />
 
         <label className="methods">
           <span data-testid="get-test" onClick={(e) => setMethod('GET')} id="get">GET</span>

@@ -24,13 +24,21 @@ describe('Testing the Form Component', () => {   // Testing if the data is loade
   it('calls the handleApi function with expected parameters', () => {
     let expectedParams = {
       method: 'get',
-      url: '',
+      url: 'https://pokeapi.co/api/v2/pokemon',
       data: 'some test json',
     };
 
     let handleApiCall = jest.fn();
     render(<Form handleApiCall={handleApiCall} />);
     let getSpan = screen.getByText('GET');
+    let textArea = screen.getByTestId('form-text-area');
+    let urlInput = screen.getByTestId('form-url');
     
+    fireEvent.click(getSpan);
+    fireEvent.change(textArea, {target: {value: 'some test json'}});
+    fireEvent.change(urlInput, {target: {value: 'https://pokeapi.co/api/v2/pokemon'}});
+    let button = screen.getByText('GO!');
+    fireEvent.click(button);
+
   });
 });
