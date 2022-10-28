@@ -6,6 +6,8 @@ In phase 2, we will be receiving user input in preparation of connecting to live
 
 In phase 3, we integrated the live APIs the input box takes in a users input and the URL to what ever API of their choice and once they click go. The application will show JSON data from that api. With the use of useEffect.
 
+In phase 4, we implemented useReduce. Refactored our code to be able to use useReduce, with that we added history to our application. Users can click and view their search history of APIs and continue to 'GET' 'POST' 'PUT' 'Delete as they view.
+
 ## Collaborators
 
 Stephen Martinez
@@ -77,6 +79,8 @@ Both headers and results should be “pretty printed” JSON
 
 ## ![UML](./uml-lab28.png)
 
+## ![UML](./uml-lab29.png)
+
 ## [Sandbox](https://codesandbox.io/p/github/Junyoungson808/resty/phase1.1?file=%2Fpackage-lock.json&selection=%5B%7B%22endColumn%22%3A24%2C%22endLineNumber%22%3A8%2C%22startColumn%22%3A24%2C%22startLineNumber%22%3A8%7D%5D&workspace=%257B%2522activeFileId%2522%253A%2522cl9ndv63g0002lqeb1ca1abe0%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9nk0zff006b356i9kie9zkp%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
 
 ## [Sandbox](https://codesandbox.io/p/github/Junyoungson808/resty/effectHook?file=%2Fpackage-lock.json&workspace=%257B%2522activeFileId%2522%253A%2522cl9ndv63g0002lqeb1ca1abe0%2522%252C%2522openFiles%2522%253A%255B%255D%252C%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522gitSidebarPanel%2522%253A%2522COMMIT%2522%252C%2522sidekickItems%2522%253A%255B%257B%2522type%2522%253A%2522PREVIEW%2522%252C%2522taskId%2522%253A%2522start%2522%252C%2522port%2522%253A3000%252C%2522key%2522%253A%2522cl9q9t34b00eo356i2z98pts8%2522%252C%2522isMinimized%2522%253Afalse%257D%255D%257D)
@@ -87,4 +91,7 @@ Both headers and results should be “pretty printed” JSON
 
 - Running tests on my project seem to all be broken or have errors. Was not able to find a solution yet. Once I find the solution will fix. -10/25/2022
 
-- No Blockers, completed the tests and fixed the previous blocker. input is now working properly and can take in different URL's and display data from the different API's.
+- No Blockers, completed the tests and fixed the previous blocker. input is now working properly and can take in different URL's and display data from the different API's. -10/26/2022
+
+- No Blockers. -10/27/2022
+
