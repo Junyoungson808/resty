@@ -4,13 +4,18 @@ import './form.scss';
 
 const Form = (props) => {
 
-  const [method, setMethod] = useState('');
+  const [method, setMethod] = useState('GET');
   const [url, setURL] = useState('');
   const [json, setJson] = useState('');
  
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    // const formData = {
+    //   method, 
+    //   url, 
+    //   json,
+    // }
+    
     props.handleApiCall({method, url, json});
   };
 

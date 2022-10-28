@@ -1,57 +1,80 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import { useReducer, useEffect } from 'react';
+import reducer from './components/reducer/index';
 import axios from 'axios';
-
 import './app.scss';
-
-// Let's talk about using index.js and some other name in the component folder
-// There's pros and cons for each way of doing this ...
 import Header from './components/header';
 import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
+import History from './components/history';
+
+const initialState = {
+  data: null,
+  requestParams: {},
+  history: [],
+}
 
 const App = () => {
 
-  const [data, setData] = useState(null);
-  const [requestParams, setRequestParams] = useState({});
-
-  const callApi = async (requestParams) => {
-    setRequestParams(requestParams);
-  }
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    const getData = async () => {
-      if (requestParams.url) {
-        const response = await axios({
-          method: requestParams.method,
-          url: requestParams.url,
-        })
-        setData(response.data);
-      }
+    let fetch = async () => {
+      let result = await axios(state.requestParams);
+      console.log(result);
+      const data = {
+        header: result.headers,
+        data: result.data
+      };
+      setData(data);
+      updateHistory(state.requestParams, data);
     }
-    getData();
-  }, [requestParams]);
+    if (state.requestParams && state.requestParams.method) fetch();
+  }, [state.requestParams]);
 
+  function setReqParams(requestParams) {
+    dispatch({
+      type: 'SET_REQ_PARAMS',
+      payload: requestParams,
+    });
+  };
 
-  // useEffect(() => {
-  //   console.log(requestParams);
-  //   axios(requestParams)
-  //     .then(response => setData(response.data.results));
-  // }, [requestParams]);
+  function setData(data) {
+    dispatch({
+      type: 'SET_DATA',
+      payload: data,
+    });
+  };
 
-  return (
-    <React.Fragment>
-      <Header />
-      <div className='url-box'>
-      <div>Request Method: {requestParams.method}</div>
-      <div>URL: {requestParams.url}</div>
-      </div>
-      <Form handleApiCall={callApi} />
-      <Results data={data} />
-      <Footer />
-    </React.Fragment>
-  );
+  function updateHistory(requestParams, data) {
+    let reqHistory = {
+      method: requestParams.method,
+      url: requestParams.url,
+      data: data,
+    }
+    dispatch({
+      type: 'HISTORY',
+      payload: reqHistory,
+    })
+  };
+
+  function handleApi(requestParams) {
+    setReqParams(requestParams)
+  }
+
+return (
+  <>
+    <Header />
+    <div className='url-box'>
+      <div>Request Method: {state.requestParams.method}</div>
+      <div>URL: {state.requestParams.url}</div>
+    </div>
+    <Form handleApiCall={handleApi} />
+    <Results data={state.data} />
+    <History history={state.history}/>
+    <Footer />
+  </>
+);
 }
 
 export default App;
